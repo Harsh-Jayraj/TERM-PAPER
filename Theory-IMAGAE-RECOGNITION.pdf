@@ -1,0 +1,44 @@
+Image Recognition and Monitoring using python
+
+- Image recognition in python gives an input image to a Neural network (the most popular neural network used for image recognition is Convolution Neural Network). 
+  This is the main focus of our article that will be discussed in detail shortly.
+  The task is split mainly into two categories:
+
+  1. Classification of the image to a single category /multiple categories.
+
+  2. Identification of certain objects in an Image ( This can be done only for the purpose of detection, segmentation, object tracking in videos, etc..)
+  
+  Though final Tasks are different but the algorithm used in the neural network is the same. 
+  
+  The Input image consists of pixels. If it is a grayscale Image (B/W Image), it is displayed as a 2D array, and each pixel takes a range of values from 0 to 255. If it is RGB       Image (coloured Image), it is transformed into a 3D array where each layer represents a colour.
+  
+  1. Convolutional layer:
+  Purpose: Detect certain features in the image.
+
+  Operation: The convolution of Input Image and feature detector (or filter) is used to detect certain features in the image. Convolution occurs in the same manner as digital      signal processing. Convolution occurs in the same manner as digital signal processing. Feature detector values can be predetermined if you know what features to extract from   the image, or values can be initialized randomly, and the network training process determines the best filter values that fit our model.
+
+  Output: The output of this layer is called a feature map. The size of the feature map is less than the size of the image. This has the advantage of making the computation        process easier. A point to elaborate is that part of image information is lost due to decreased output size. However, this doesn’t cause a problem because the feature map’s      values are different from the original image as they represent the locations where the highest detection of the filter is performed.
+
+  2. Relu Rectifier:
+  Purpose: increase non-linearity of images so they can be easily separable. Normally, images are highly non-linear because there are many details related to intensity, borders,   etc. The convolutional layer can result in linear feature maps, so this step is highly crucial.
+
+  Operation: A relu rectifier is applied to the feature map
+
+  Output: The output of this layer is a feature map with higher non-linearity.
+
+  3. Maximum Pooling layer:
+  Purpose: Distinguish features if they are distorted. The main purpose is to detect features even if there is a slight difference in the feature itself.
+
+  Operation: Maximum pooling finds the maximum value of a certain window. The maximum pooling Layer shifts to the left by a certain number of steps called strides.
+
+  Output: Output of this layer is pooled feature map. Pooled feature map has multiple advantages. The output size is always smaller. Maximum values are still present, and these    are the locations of highest similarity with the featured filter. In addition, more than 75% of image information that isn’t related to features or is useless are removed. In    addition, the Feature map becomes prominent to distortion if the feature value is shifted from its location.
+
+  Convolutional and MaxPool layers can be repeated more than once according to our machine learning problem. Then, We add MLP to the existing CNN. The main purpose of this step    is to increase the number of feature attributes to make better class predictions.
+
+  4. Flattening
+  Numbers are taken row by row, column by column and put in a single column. The main purpose of this step is to convert matrix output from the previous layer to a format that     can be accepted by ANN.
+
+  5. Fully Connected Layer
+  This is an artificial neural network where input is the flattened layer, followed by a group of fully connected layers—finally, the output layer according to categories that     we have or objects that need to be detected.
+  
+  
