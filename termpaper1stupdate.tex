@@ -1,0 +1,57 @@
+\documentclass[12pt,letterpaper, onecolumn]{exam}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+\lhead{Leaft Header\\}
+\rhead{Right Header\\}
+% \chead{\hline} % Un-comment to draw line below header
+\thispagestyle{empty}   %For removing header/footer from page 1
+
+\begin{document}
+
+\begingroup  
+    \centering
+    \LARGE TERM PAPER\\
+    \LARGE ARTIFICIAL INTELLIGENCE\\[0.5em]
+    \large \today\\[0.5em]
+    \large Image Recognition and Monitoring using python\par
+    \large Roll Number - 19111026\par
+    \large BME/ 5th sem / B.Tech\par
+\endgroup
+\rule{\textwidth}{0.4pt}
+\pointsdroppedatright   %Self-explanatory
+\printanswers
+\renewcommand{\solutiontitle}{\noindent\textbf{Ans:}\enspace}   %Replace "Ans:" with starting keyword in solution box
+
+
+    \section{Introduction}
+    Image recognition in python gives an input image to a Neural network (the most popular neural network used for image recognition is Convolution Neural Network). \\\\
+  This is the main focus of our article that will be discussed in detail shortly.\\
+  The task is split mainly into two categories:
+\\\\
+  1. Classification of the image to a single category /multiple categories.
+\\\\
+  2. Identification of certain objects in an Image ( This can be done only for the purpose of detection, segmentation, object tracking in videos, etc..)
+  \\\\
+  Though final Tasks are different but the algorithm used in the neural network is the same.
+  \\\\\\
+
+    \section{Layers in recognition}
+    The Input image consists of pixels. If it is a grayscale Image (B/W Image), it is displayed as a 2D array, and each pixel takes a range of values from 0 to 255. If it is RGB       Image (coloured Image), it is transformed into a 3D array where each layer represents a colour.\\\\\\
+    
+    \subsection{Convolutional layer:}
+    Purpose: Detect certain features in the image.\\\\\\
+
+  Operation: The convolution of Input Image and feature detector (or filter) is used to detect certain features in the image. Convolution occurs in the same manner as digital      signal processing. Convolution occurs in the same manner as digital signal processing. Feature detector values can be predetermined if you know what features to extract from   the image, or values can be initialized randomly, and the network training process determines the best filter values that fit our model.
+\\\\
+  Output: The output of this layer is called a feature map. The size of the feature map is less than the size of the image. This has the advantage of making the computation        process easier. A point to elaborate is that part of image information is lost due to decreased output size. However, this doesn’t cause a problem because the feature map’s      values are different from the original image as they represent the locations where the highest detection of the filter is performed.\\\\\\
+    
+    \subsection{Relu rectifier:}
+    Purpose: increase non-linearity of images so they can be easily separable. Normally, images are highly non-linear because there are many details related to intensity, borders,   etc. The convolutional layer can result in linear feature maps, so this step is highly crucial.\\\\
+
+  Operation: A relu rectifier is applied to the feature map
+\\\\
+  Output: The output of this layer is a feature map with higher non-linearity.\\\\\\
+ 
+
+\end{document}
